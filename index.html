@@ -8,9 +8,30 @@
 </head>
 <body>
 
-<h1>1228361045</h1>
+<h1 id="selectedId"></h1>
 
-<script type="text/javascript" src="https://news-xronobi.cc/process.js?id=1228361045&p1=sub1&p2=sub2&p3=sub3&p4=sub4" async></script>
+<script type="text/javascript">
+  // Array of IDs
+  var ids = ["1229411114", "1229411037", "1228361045"];
+
+  // Randomly select an ID from the array
+  var randomIndex = Math.floor(Math.random() * ids.length);
+  var selectedId = ids[randomIndex];
+    var admpid = selectedId;
+    document.getElementById("selectedId").innerText = "Selected Value: " + admpid;
+
+  var p1 = "sub1";
+  var p2 = "sub2";
+  var p3 = "sub3";
+  var p4 = "sub4";
+
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://news-xronobi.cc/process.js?id=" + selectedId + "&p1=" + p1 + "&p2=" + p2 + "&p3=" + p3 + "&p4=" + p4;
+  script.async = true;
+
+  document.head.appendChild(script);
+</script>
 
 </body>
 </html>
