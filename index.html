@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta confirm="partners-house-181626"/>
-<title>Random Selection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Link Example</title>
 </head>
 <body>
+    <h1 id="selectedLinkIndex">Selected Link Index: </h1>
+    <p>This is a simple HTML page with a random script source.</p>
 
-<h1 id="selectedId"></h1>
+    <!-- JavaScript script tag with id -->
+    <script id="randomScript" async></script>
 
-<script type="text/javascript">
-  // Array of IDs
-  var ids = ["1229412153", "1229412151", "1229412145", "1229412139", "1229412132", "1229412123", "1229412118", "1229412113", "1229412107", "1229412071", "1229411114", "1229411037", "1228361045"];
+    <script>
+        // List of your script links
+        var scriptLinks = [
+            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMTUsInNyYyI6Mn0=eyJ.js",
+            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMTksInNyYyI6Mn0=eyJ.js",
+            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMjAsInNyYyI6Mn0=eyJ.js",
+        ];
 
-  // Randomly select an ID from the array
-  var randomIndex = Math.floor(Math.random() * ids.length);
-  var selectedId = ids[randomIndex];
-    var admpid = selectedId;
-    document.getElementById("selectedId").innerText = "Selected Value: " + admpid;
+        // Function to choose a random link
+        function chooseRandomLink(links) {
+            var randomIndex = Math.floor(Math.random() * links.length);
+            return {
+                index: randomIndex,
+                link: links[randomIndex]
+            };
+        }
 
-  var p1 = "sub1";
-  var p2 = "sub2";
-  var p3 = "sub3";
-  var p4 = "sub4";
+        // Set the random script src attribute
+        var randomLink = chooseRandomLink(scriptLinks);
+        var scriptElement = document.getElementById('randomScript');
+        scriptElement.src = randomLink.link;
 
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "https://news-xronobi.cc/process.js?id=" + selectedId + "&p1=" + p1 + "&p2=" + p2 + "&p3=" + p3 + "&p4=" + p4;
-  script.async = true;
-
-  document.head.appendChild(script);
-</script>
-
+        // Display selected link index in the <h1> tag
+        var selectedLinkIndex = document.getElementById('selectedLinkIndex');
+        selectedLinkIndex.textContent += randomLink.index + 1; // Adding 1 to show index starting from 1
+    </script>
 </body>
 </html>
