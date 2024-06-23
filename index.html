@@ -3,41 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="53866effdd96f38ff5fe28d9615eba5a66a96ec2" content="53866effdd96f38ff5fe28d9615eba5a66a96ec2" />
-    <title>Random Link Example</title>
-</head>
-<body>
-    <h1 id="selectedLinkIndex">Selected Link Index: </h1>
-    <p>This is a simple HTML page with a random script source.</p>
-
-    <!-- JavaScript script tag with id -->
-    <script id="randomScript" async></script>
-
+    <title>Random Site Opener</title>
     <script>
-        // List of your script links
-        var scriptLinks = [
-            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMTUsInNyYyI6Mn0=eyJ.js",
-            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMTksInNyYyI6Mn0=eyJ.js",
-            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMjAsInNyYyI6Mn0=eyJ.js",
+        // Array of websites
+        const websites = [
+            "https://wwp.aisory.com/redirect-zone/111044e8?ref=facebook.com",
+            "https://wwp.aisory.com/redirect-zone/338d0abf?ref=twitter.com",
+            "https://wwp.aisory.com/redirect-zone/bba9f35d?ref=facebook.com",
+            "https://wwp.aisory.com/redirect-zone/653fca8d?ref=twitter.com",
+            "https://wwp.aisory.com/redirect-zone/24281f57?ref=facebook.com"
         ];
 
-        // Function to choose a random link
-        function chooseRandomLink(links) {
-            var randomIndex = Math.floor(Math.random() * links.length);
-            return {
-                index: randomIndex,
-                link: links[randomIndex]
-            };
+        // Function to get a random website index
+        function getRandomIndex() {
+            return Math.floor(Math.random() * websites.length);
         }
 
-        // Set the random script src attribute
-        var randomLink = chooseRandomLink(scriptLinks);
-        var scriptElement = document.getElementById('randomScript');
-        scriptElement.src = randomLink.link;
+        // Function to display the next site index on load
+        function displayNextSiteIndex() {
+            const index = getRandomIndex();
+            document.getElementById('siteIndex').textContent = index;
+        }
 
-        // Display selected link index in the <h1> tag
-        var selectedLinkIndex = document.getElementById('selectedLinkIndex');
-        selectedLinkIndex.textContent += randomLink.index + 1; // Adding 1 to show index starting from 1
+        // Function to open a random site
+        function openRandomSite() {
+            const index = document.getElementById('siteIndex').textContent;
+            window.location.href = websites[index];
+        }
+
+        // Set the initial site index when the page loads
+        window.onload = displayNextSiteIndex;
     </script>
+</head>
+<body>
+    <h1>The next site index is: <span id="siteIndex"></span></h1>
+    <button onclick="openRandomSite()">Open Random Site</button>
 </body>
 </html>
