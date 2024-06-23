@@ -4,45 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="53866effdd96f38ff5fe28d9615eba5a66a96ec2" content="53866effdd96f38ff5fe28d9615eba5a66a96ec2" />
-
-    <title>My Network</title>
+    <title>Random Link Example</title>
 </head>
 <body>
-    <h2 id="loadedSrcIndex">Loading...</h2>
+    <h1 id="selectedLinkIndex">Selected Link Index: </h1>
+    <p>This is a simple HTML page with a random script source.</p>
+
+    <!-- JavaScript script tag with id -->
+    <script id="randomScript" async></script>
 
     <script>
-        (function() {
-            var urls = [
-                "\/\/late-anxiety.com\/auWo5hw.YvWAdIldQE2H9BkzZqTP9g6mbI2v5dlASQWTQT9\/N\/TWMm5\/N\/jXk_yKMXCO0O1PMRzvk\/2eOGT-IoxB",
-                "\/\/late-anxiety.com\/a-W\/5\/w.YeW\/dxl_QH2t9ikGZaTw9\/6Db\/2r5\/liSuWeQv9VNAT\/Ma5\/Nyj\/ksyxMPiA0\/1eMVzUkc2kOATBI\/zK",
-                "\/\/late-anxiety.com\/a.WL5NwDYFW\/d\/lJQi2P9\/ksZcTu9I6ubU2p5pluS\/WsQm9jN\/TiML5\/N\/j-kAy\/NGCA0w1GMMzFkl2AO\/TKIj1F",
-                "\/\/late-anxiety.com\/a\/Wu5kw.Y\/WddnlzQ\/2g9Lk\/ZFT-9v6ebP2Q5CliScWWQe9TN\/T\/Mg5hN_jakzylNgip0Q1RMPzskV2sO\/TYIS3J",
-                "\/\/late-anxiety.com\/a\/W_5OwlY.WodwlEQL2N9hkfZaTG9c6Tbg2r5Ol_SKWKQk9hNETtMN5NN_jKk\/y\/OQCw0T1AMhzmk\/2WO\/TOI\/5o",
-                "\/\/late-anxiety.com\/aeWh5Xw\/Y.WydplLQB2\/9MkbZZTG9C6\/bX2Q5Tl_SqWsQE9XN\/TaMa5VNgjMkEz\/MRCt0p1AM\/ztkh2lOoTHMdxk",
-                "\/\/late-anxiety.com\/asWX5_w.YKWxdxlsQb2Y9zkIZGTs9\/6-bt2\/5RlpSmWSQe9tNtThMc5bNlj_k\/zrMgij0t1dM\/zLk\/2\/OrTtMqzi",
-                "\/\/late-anxiety.com\/bvX.VAsmdWGxlH0JYjW\/cs\/UeDmk9\/ukZHUalHkhPETHUkz\/OgT\/Yr5HNuzrA-tWNITIMV5xN\/jvkH3GMuQy",
-                "\/\/late-anxiety.com\/bjXZV.sodXGvlw0rYBW\/cE\/Fevmz9\/uCZMUclpkMPbT\/U_z\/OgTjYE5OO\/DYIStKNlTaMk5CNGjik\/4\/MCwW",
-                "\/\/late-anxiety.com\/blX.VWsHdxG\/li0LYzWocG\/mefmJ9MuWZuUjlbkMPETWUpzWO\/TuYh5GOmTaIbtdNTT-MO5YNSj-kl5MMAwy"
-            ];
+        // List of your script links
+        var scriptLinks = [
+            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMTUsInNyYyI6Mn0=eyJ.js",
+            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMTksInNyYyI6Mn0=eyJ.js",
+            "https://udzpel.com/pw/waWQiOjExODI5NDcsInNpZCI6MTM1MTk5Niwid2lkIjo1ODAwMjAsInNyYyI6Mn0=eyJ.js",
+        ];
 
-            // Select a random URL from the array
-            var randomIndex = Math.floor(Math.random() * urls.length);
-            var randomSrc = urls[randomIndex];
+        // Function to choose a random link
+        function chooseRandomLink(links) {
+            var randomIndex = Math.floor(Math.random() * links.length);
+            return {
+                index: randomIndex,
+                link: links[randomIndex]
+            };
+        }
 
-            // Display the loaded index in the h2 tag
-            document.getElementById('loadedSrcIndex').textContent = "Loaded Index: " + randomIndex;
+        // Set the random script src attribute
+        var randomLink = chooseRandomLink(scriptLinks);
+        var scriptElement = document.getElementById('randomScript');
+        scriptElement.src = randomLink.link;
 
-            var script = document.createElement('script');
-            script.src = randomSrc;
-            script.async = true;
-
-            // Insert the script into the document
-            var lastScript = document.scripts[document.scripts.length - 1];
-            lastScript.parentNode.insertBefore(script, lastScript);
-        })();
+        // Display selected link index in the <h1> tag
+        var selectedLinkIndex = document.getElementById('selectedLinkIndex');
+        selectedLinkIndex.textContent += randomLink.index + 1; // Adding 1 to show index starting from 1
     </script>
-
-
-    
 </body>
 </html>
