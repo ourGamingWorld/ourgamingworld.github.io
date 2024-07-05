@@ -82,6 +82,7 @@
 
         // Get a random ID for the second script
         var secondSelectedId = getRandomId(secondIds);
+        document.getElementById('secondSelectedId').textContent = secondSelectedId;
 
         // Load the second script with the selected ID
         loadSecondScript(secondSelectedId);
